@@ -25,13 +25,13 @@ public class TestingMain {
         else
             System.out.println("Error!");
 
-        System.out.println("Test calculator_substract - trzeci test jednostkowy:");        int substract = a - b;
+        System.out.println("Test calculator_substract - trzeci test jednostkowy:");
         int subtract = a - b;
+        
         if (subtract == Calculator.subtract(a,b))
             System.out.println("test OK");
         else
             System.out.println("Error!");
-
 
     }
 }
