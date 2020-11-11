@@ -20,7 +20,7 @@ public class TestingMain {
         int b = 10;
         int sum = a + b;
 
-        if (sum == Calculator.add(a,b))
+        if (sum == Calculator.add(a, b))
             System.out.println("test OK");
         else
             System.out.println("Error!");
@@ -28,7 +28,7 @@ public class TestingMain {
         System.out.println("Test calculator_subtract - trzeci test jednostkowy:");
         int subtract = a - b;
 
-        if (subtract == Calculator.subtract(a,b))
+        if (subtract == Calculator.subtract(a, b))
             System.out.println("test OK");
         else
             System.out.println("Error!");
