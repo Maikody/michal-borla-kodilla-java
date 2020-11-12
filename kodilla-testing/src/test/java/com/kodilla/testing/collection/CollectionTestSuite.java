@@ -12,11 +12,13 @@ public class CollectionTestSuite {
         System.out.println("Test Case: begin");
     }
 
-    @DisplayName("When result list is empty, then exterminate() should return null")
+    @DisplayName("When there is no even numbers, then exterminate() should return empty list")
     @Test
     public void testOddNumbersExterminatorEmptyList(){
         System.out.println("Running OddNumbersExterminatorEmptyListTest... ");
-        Assertions.assertNull(OddNumbersExterminator.exterminate(new ArrayList<>()));
+        List<Integer> methodResultList = OddNumbersExterminator.exterminate(new ArrayList<>());
+        boolean isListEmpty = methodResultList.isEmpty();
+        Assertions.assertTrue(isListEmpty);
     }
 
     @DisplayName("When result list contains numbers, then exterminate() should return true if all numbers are even")

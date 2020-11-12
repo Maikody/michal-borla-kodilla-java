@@ -14,9 +14,6 @@ public class OddNumbersExterminator {
             }
         }
 
-        if(evenNumbers.isEmpty())
-            return null;
-
         return evenNumbers;
     }
 
