@@ -21,6 +21,10 @@ public class Continent {
         return countries;
     }
 
+    public void addCountry(Country country){
+        countries.add(country);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -33,6 +37,5 @@ public class Continent {
     public int hashCode() {
         return continentName.hashCode();
     }
-
 
 }

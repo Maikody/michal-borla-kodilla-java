@@ -12,25 +12,25 @@ public class WorldTestSuite {
         World earth = new World();
 
         Continent europe = new Continent("Europe");
-        europe.getCountries().add(new Country("Poland",new BigDecimal("10000000000000000")));
-        europe.getCountries().add(new Country("Spain",new BigDecimal("10000000000000000")));
-        europe.getCountries().add(new Country("France",new BigDecimal("10000000000000000")));
-        europe.getCountries().add(new Country("Germany",new BigDecimal("10000000000000000")));
-        earth.getContinents().add(europe);
+        europe.addCountry(new Country("Poland",new BigDecimal("10000000000000000")));
+        europe.addCountry(new Country("Spain",new BigDecimal("10000000000000000")));
+        europe.addCountry(new Country("France",new BigDecimal("10000000000000000")));
+        europe.addCountry(new Country("Germany",new BigDecimal("10000000000000000")));
+        earth.addContinent(europe);
 
         Continent africa = new Continent("Africa");
-        europe.getCountries().add(new Country("Egypt",new BigDecimal("10000000000000000")));
-        europe.getCountries().add(new Country("Morocco",new BigDecimal("10000000000000000")));
-        europe.getCountries().add(new Country("Kongo",new BigDecimal("10000000000000000")));
-        europe.getCountries().add(new Country("Senegal",new BigDecimal("10000000000000000")));
-        earth.getContinents().add(africa);
+        africa.addCountry(new Country("Egypt",new BigDecimal("10000000000000000")));
+        africa.addCountry(new Country("Morocco",new BigDecimal("10000000000000000")));
+        africa.addCountry(new Country("Kongo",new BigDecimal("10000000000000000")));
+        africa.addCountry(new Country("Senegal",new BigDecimal("10000000000000000")));
+        earth.addContinent(africa);
 
         Continent asia = new Continent("Asia");
-        europe.getCountries().add(new Country("China",new BigDecimal("10000000000000000")));
-        europe.getCountries().add(new Country("Japan",new BigDecimal("10000000000000000")));
-        europe.getCountries().add(new Country("India",new BigDecimal("10000000000000000")));
-        europe.getCountries().add(new Country("Afghanistan",new BigDecimal("10000000000000000")));
-        earth.getContinents().add(asia);
+        asia.addCountry(new Country("China",new BigDecimal("10000000000000000")));
+        asia.addCountry(new Country("Japan",new BigDecimal("10000000000000000")));
+        asia.addCountry(new Country("India",new BigDecimal("10000000000000000")));
+        asia.addCountry(new Country("Afghanistan",new BigDecimal("10000000000000000")));
+        earth.addContinent(asia);
 
         BigDecimal expectedSum = new BigDecimal("120000000000000000");
         assertEquals(expectedSum, earth.getPeopleQuantity());
