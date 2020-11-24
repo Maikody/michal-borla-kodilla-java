@@ -23,6 +23,6 @@ test {
     useJUnitPlatform()
 }
 
-bootJar {
+bootJar{
     enabled = false
 }
