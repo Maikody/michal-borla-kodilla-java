@@ -23,9 +23,8 @@ public class FlightsDatabase {
     }
 
     public boolean removeFlight(Flight flight){
-        if (flight != null && flightsDatabase.contains(flight)) {
-            flightsDatabase.remove(flight);
-            return true;
+        if (flight != null) {
+            return flightsDatabase.remove(flight);
         }
         return false;
     }

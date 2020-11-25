@@ -1,5 +1,7 @@
 package com.kodilla.exception.test;
 
+import java.util.Objects;
+
 public final class Flight {
     private final String departureAirport;
     private final String arrivalAirport;
@@ -16,4 +18,14 @@ public final class Flight {
     public String getArrivalAirport() {
         return arrivalAirport;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Flight flight = (Flight) o;
+        return Objects.equals(departureAirport, flight.departureAirport) &&
+                Objects.equals(arrivalAirport, flight.arrivalAirport);
+    }
+
 }
