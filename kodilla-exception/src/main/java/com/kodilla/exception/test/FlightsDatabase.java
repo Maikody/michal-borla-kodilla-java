@@ -23,10 +23,7 @@ public class FlightsDatabase {
     }
 
     public boolean removeFlight(Flight flight){
-        if (flight != null) {
-            return flightsDatabase.remove(flight);
-        }
-        return false;
+        return flightsDatabase.remove(flight);
     }
 
     public int numberOfFlights(){
