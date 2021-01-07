@@ -4,10 +4,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class MovieStore {
 
-    public Map<String, List<String>> getMovies() {
+    public static void main(String[] args) {
+        System.out.println(printMovies(getMovies()));
+    }
+
+    public static Map<String, List<String>> getMovies() {
         List<String> ironManTranslations = new ArrayList<>();
         ironManTranslations.add("Żelazny Człowiek");
         ironManTranslations.add("Iron Man");
@@ -28,11 +33,10 @@ public class MovieStore {
         return booksTitlesWithTranslations;
     }
 
-    public void printMovies(Map<String, List<String>> movies) {
-        movies.entrySet().stream()
+    public static String printMovies(Map<String, List<String>> movies) {
+        return movies.entrySet().stream()
                 .flatMap(entry -> entry.getValue().stream())
-                .map(title -> title + "! ")
-                .forEach(System.out::print);
+                .collect(Collectors.joining("!"));
     }
 
 }
