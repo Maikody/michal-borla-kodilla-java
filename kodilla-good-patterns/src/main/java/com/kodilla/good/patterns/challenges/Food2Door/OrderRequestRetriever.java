@@ -4,34 +4,11 @@ import java.util.Scanner;
 
 public class OrderRequestRetriever {
 
-    private static final String EXTRAFOODSHOP = "EXTRAFOODSHOP";
-    private static final String HEALTHYSHOP = "HEALTHYSHOP";
-    private static final String GLUTENFREESHOP = "GLUTENFREESHOP";
-
     public OrderRequest retrieve() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter food supplier name: ");
-
-        Supplier supplier = null;
-        while (supplier == null) {
-            String foodSupplier = scanner.nextLine().trim().toUpperCase();
-
-            switch (foodSupplier) {
-                case (EXTRAFOODSHOP):
-                    supplier = new ExtraFoodShop();
-                    break;
-                case (HEALTHYSHOP):
-                    supplier = new HealthyShop();
-                    break;
-                case (GLUTENFREESHOP):
-                    supplier = new GlutenFreeShop();
-                    break;
-                default:
-                    System.out.println(foodSupplier + " not found in database.");
-                    System.out.println("Enter different supplier");
-            }
-        }
+        String foodSupplier = scanner.nextLine().trim().toUpperCase();
 
         System.out.println("Enter product to order: ");
         String product = scanner.nextLine().trim().toUpperCase();
@@ -50,7 +27,7 @@ public class OrderRequestRetriever {
             }
         }
 
-        return new OrderRequest(supplier, new Product(product), quantity);
+        return new OrderRequest(foodSupplier, new Product(product), quantity);
     }
 
 }

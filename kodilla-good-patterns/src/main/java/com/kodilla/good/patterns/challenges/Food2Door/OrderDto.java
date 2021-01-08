@@ -6,8 +6,8 @@ public class OrderDto {
     private int amount;
     private boolean isAccepted;
 
-    public OrderDto(Supplier user, Product product, int amount, boolean isAccepted) {
-        this.supplier = user;
+    public OrderDto(Supplier supplier, Product product, int amount, boolean isAccepted) {
+        this.supplier = supplier;
         this.product = product;
         this.amount = amount;
         this.isAccepted = isAccepted;

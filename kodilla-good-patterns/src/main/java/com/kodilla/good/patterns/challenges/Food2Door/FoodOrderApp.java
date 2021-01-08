@@ -15,7 +15,7 @@ public class FoodOrderApp {
                 case 1:
                     OrderRequestRetriever orderRequestRetriever = new OrderRequestRetriever();
                     OrderRequest orderRequest = orderRequestRetriever.retrieve();
-                    OrderProcessor orderProcessor = new OrderProcessor(orderRequest.getSupplier(), new FoodOrderRepository());
+                    OrderProcessor orderProcessor = new OrderProcessor(new FoodOrderRepository());
                     OrderDto newOrderData = orderProcessor.process(orderRequest);
                     if (newOrderData.isAccepted()) {
                         System.out.println("Order placed successfully");

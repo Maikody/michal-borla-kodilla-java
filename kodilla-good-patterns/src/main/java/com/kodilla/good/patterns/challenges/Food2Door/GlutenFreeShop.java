@@ -21,7 +21,7 @@ public class GlutenFreeShop extends Supplier {
 
     @Override
     public boolean process(OrderRequest orderRequest) {
-        if (orderRequest.getProduct().getName().matches("(Gluten Free)")) {
+        if (orderRequest.getProduct().getName().matches(".*(GLUTEN FREE).*")) {
             return (sellProductFromStock(supplierStock, orderRequest.getProduct(), orderRequest.getAmount()) != 0);
         }
         System.out.println(name + " accepts orders only for gluten free products!");
