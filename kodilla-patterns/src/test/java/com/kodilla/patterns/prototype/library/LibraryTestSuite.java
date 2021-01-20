@@ -12,7 +12,7 @@ public class LibraryTestSuite {
     void testGetBooks() {
         Library library = new Library("Library 1");
         for (int i = 1; i < 11; i++) {
-            library.books.add(new Book("Book " + i, "Author " + i, LocalDate.now().plusDays(i)));
+            library.getBooks().add(new Book("Book " + i, "Author " + i, LocalDate.now().plusDays(i)));
         }
 
         Library clonedLibrary = null;
