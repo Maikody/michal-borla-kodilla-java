@@ -1,0 +1,76 @@
+CREATE TABLE ISSUESLISTS
+(
+	ID SERIAL PRIMARY KEY,
+	FNAME VARCHAR(100)
+);
+
+CREATE TABLE ISSUES
+(
+	ID SERIAL PRIMARY KEY,
+    	ISSUESLIST_ID BIGINT UNSIGNED NOT NULL,
+    	SUMMARY VARCHAR(100),
+    	DESCRIPTION VARCHAR(1000),
+   	USER_ID_ASSIGNEDTO BIGINT UNSIGNED NOT NULL,
+    
+    	FOREIGN KEY(ISSUESLIST_ID) REFERENCES ISSUESLISTS(ID),
+	FOREIGN KEY(USER_ID_ASSIGNEDTO) REFERENCES USERS(ID)
+);
+
+COMMIT;
+
+INSERT INTO ISSUESLISTS (NAME)
+VALUES ('ToDo');
+
+INSERT INTO ISSUESLISTS (NAME)
+VALUES ('In progress');
+
+INSERT INTO ISSUESLISTS (NAME)
+VALUES ('Done');
+
+COMMIT;
+
+DELIMITER //
+
+CREATE PROCEDURE InsertLoop()
+	DECLARE x INT;
+	DECLARE user_id INT;
+    	DECLARE issuelist_id INT;
+   	DECLARE str VARCHAR(100);
+    
+	SET x = 1;
+    	SET user_id = 1;
+    	SET issuelist_id = 1;
+    	SET str = 'Task ';
+    
+	insert_loop: LOOP
+		IF x > 15 THEN 
+			LEAVE insert_loop;
+		END IF;
+        
+		IF user_id > 5 THEN 
+			SET user_id = 1;
+		END IF;
+        
+        IF issuelist_id > 3 THEN 
+			SET issuelist_id = 1;
+		END IF;
+        
+        SET str = CONCAT(str, x);
+        
+		INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+		VALUES (issuelist_id, str, 'Task constists of ...', user_id);
+        
+        SET x = x + 1;
+        SET user_id = user_id + 1;
+        SET issuelist_id = issuelist_id + 1;
+        SET str = 'Task ';
+	END LOOP;
+END //
+
+DELIMITER ;
+
+CALL InsertLoop();
+
+COMMIT;
+
+SELECT * FROM ISSUES;
