@@ -1,4 +1,4 @@
-package com.kodilla.patterns.builder;
+package com.kodilla.patterns.builder.pizza;
 
 import java.util.ArrayList;
 import java.util.List;
