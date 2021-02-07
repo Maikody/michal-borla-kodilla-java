@@ -6,15 +6,19 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
     private CompanyDao companyDao;
+    @Autowired
+    private EmployeeDao employeeDao;
 
     @Test
-    void testSaveMAnyToMAny() {
+    void testSaveManyToMany() {
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
         Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
@@ -42,9 +46,14 @@ public class CompanyDaoTestSuite {
         companyDao.save(greyMatter);
         int greyMatterId = softwareMachine.getId();
 
+        List<Employee> employeeListByLastname = employeeDao.retrieveEmployeeByLastname("Kovalsky");
+        List<Company> companiesByThreeLetters = companyDao.retrieveCompanyByFirstThreeLetters("GRE");
+
         assertNotEquals(0, softwareMachineId);
         assertNotEquals(0, dataMaestersId);
         assertNotEquals(0, greyMatterId);
+        assertEquals(1, employeeListByLastname.size());
+        assertEquals(1, companiesByThreeLetters.size());
 
         try {
             companyDao.deleteById(softwareMachineId);
