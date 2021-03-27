@@ -14,4 +14,9 @@ import java.util.List;
 public interface EmployeeDao extends CrudRepository<Employee, Integer> {
     @Query
     List<Employee> retrieveEmployeeByLastname(@Param("LASTNAME") String lastname);
+
+    @Query("SELECT e FROM Employee e " +
+            " WHERE LOWER(e.firstname) LIKE LOWER(CONCAT('%',:ARG,'%'))" +
+            " OR LOWER(e.lastname) LIKE LOWER(CONCAT('%',:ARG,'%'))")
+    List<Employee> findByNameFragment(@Param ("ARG") String arg);
 }

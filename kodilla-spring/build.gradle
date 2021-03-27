@@ -15,6 +15,10 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.3'
+	testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.6.3'
+	testImplementation 'org.mockito:mockito-junit-jupiter:3.3.3'
 }
 
 test {

@@ -14,4 +14,8 @@ import java.util.List;
 public interface CompanyDao extends CrudRepository<Company, Integer> {
     @Query(nativeQuery = true)
     List<Company> retrieveCompanyByFirstThreeLetters(@Param("TICKER") String ticker);
+
+    @Query("SELECT c FROM Company c " +
+            " WHERE LOWER(c.name) LIKE LOWER(CONCAT('%',:ARG,'%'))")
+    List<Company> findByNameFragment(@Param ("ARG") String arg);
 }

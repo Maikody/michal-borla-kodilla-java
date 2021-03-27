@@ -71,4 +71,8 @@ public class Employee {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
+
+    public void addCompany(Company company) {
+        companies.add(company);
+    }
 }
