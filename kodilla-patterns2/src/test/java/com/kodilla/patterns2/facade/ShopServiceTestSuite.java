@@ -1,4 +1,4 @@
-package com.kodilla.patterns2;
+package com.kodilla.patterns2.facade;
 
 import com.kodilla.patterns2.facade.ShopService;
 import com.kodilla.patterns2.facade.api.ItemDto;
